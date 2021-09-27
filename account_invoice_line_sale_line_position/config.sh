@@ -22,3 +22,47 @@ TGT_VER=14.0
 # Uncomment to enable workers
 # 2 workers do not work well with coverage
 # WORKERS="-d od${OD_VER}_demo_${DB_SUFFIX} --workers=0 --load=base,queue_job"
+DEP_TREE=`cat <<EOF
+account_invoice_line_sale_line_position (14.0.1.0.0)
+    └── sale_order_line_position (14.0.1.0.0)
+        └── sale (14.0+c)
+            ├── payment (14.0+c)
+            │   └── account (14.0+c)
+            │       ├── analytic (14.0+c)
+            │       │   ├── mail (14.0+c)
+            │       │   │   ├── base_setup (14.0+c)
+            │       │   │   │   └── web (14.0+c)
+            │       │   │   ├── bus (14.0+c)
+            │       │   │   │   └── web ⬆
+            │       │   │   └── web_tour (14.0+c)
+            │       │   │       └── web ⬆
+            │       │   └── uom (14.0+c)
+            │       ├── base_setup ⬆
+            │       ├── digest (14.0+c)
+            │       │   ├── mail ⬆
+            │       │   ├── portal (14.0+c)
+            │       │   │   ├── auth_signup (14.0+c)
+            │       │   │   │   ├── base_setup ⬆
+            │       │   │   │   ├── mail ⬆
+            │       │   │   │   └── web ⬆
+            │       │   │   ├── http_routing (14.0+c)
+            │       │   │   │   └── web ⬆
+            │       │   │   ├── mail ⬆
+            │       │   │   ├── web ⬆
+            │       │   │   └── web_editor (14.0+c)
+            │       │   │       └── web ⬆
+            │       │   └── resource (14.0+c)
+            │       │       └── web ⬆
+            │       ├── portal ⬆
+            │       └── product (14.0+c)
+            │           ├── mail ⬆
+            │           └── uom ⬆
+            ├── portal ⬆
+            ├── sales_team (14.0+c)
+            │   └── mail ⬆
+            └── utm (14.0+c)
+                └── web ⬆
+EOF
+`
+INIT_MODULES=sale_order_line_position
+INIT_REPO_MODULES=account,base_comment_template
