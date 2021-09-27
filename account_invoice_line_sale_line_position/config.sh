@@ -12,7 +12,7 @@ REPO_MODULES=account_comment_template,account_invoice_line_report,account_invoic
 # Uncomment for overriding
 # OCA_REPOS=${REPO}
 GH_NAME=HoKhanhNguyen99
-DB_SUFFIX=
+DB_SUFFIX=accntivcelinesalelinepstn
 SRC_BR=13.0
 TGT_VER=14.0
 
