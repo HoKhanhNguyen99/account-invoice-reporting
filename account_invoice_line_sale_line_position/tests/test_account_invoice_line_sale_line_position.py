@@ -25,11 +25,15 @@ class TestAccountInvoiceLineSaleLinePosition(SingleTransactionCase):
                             "qty_delivered": 4.0,
                         },
                     ),
+<<<<<<< HEAD
                     (
                         0,
                         0,
                         {"name": "section", "display_type": "line_section"},
                     ),
+=======
+                    (0, 0, {"name": "section", "display_type": "line_section"},),
+>>>>>>> [13.0][ADD] account_invoice_line_sale_line_position
                     (
                         0,
                         0,
